@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+
+Sitemap: https://henrisol.oagroupng.com/sitemap.xml
+
+Host: henrisol.oagroupng.com

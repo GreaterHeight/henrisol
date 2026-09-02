@@ -1,2 +1,793 @@
-<h1>HENRISOL PROPERTIES LIMITED
-Site Maintanance Mode </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henrisol Properties Ltd — Property. Investment. Development. Management. | Lagos, Nigeria</title>
+  <meta name="description" content="Premium Nigerian real estate — property sales, lettings, investment, development, and facilities management. Diaspora investment specialists. A member of OA Group Nigeria.">
+  <link rel="canonical" href="https://henrisol.oagroupng.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Henrisol Properties Ltd — Property. Investment. Development. Management.">
+  <meta property="og:description" content="Premium Nigerian real estate — property sales, lettings, investment, development, and facilities management. Diaspora investment specialists.">
+  <meta property="og:url" content="https://henrisol.oagroupng.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <style>
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: var(--nav-height);
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      /* PHOTOGRAPHY PLACEHOLDER — replace with hero property image before launch */
+      background: linear-gradient(160deg, var(--h-purple-deep) 0%, var(--dark-bg) 60%, #0E0818 100%);
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,18,32,0.97) 0%, rgba(28,18,32,0.4) 50%, rgba(28,18,32,0.15) 100%);
+      z-index: 1;
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding: var(--sp-20) var(--gutter);
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero__eyebrow {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--h-amber);
+      display: block;
+      margin-bottom: var(--sp-5);
+    }
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: var(--sp-6);
+      max-width: 14ch;
+    }
+    .hero__headline em { color: var(--h-amber); font-style: italic; }
+    .hero__sub {
+      font-family: var(--font-body);
+      font-size: var(--text-xl);
+      color: rgba(255,255,255,0.6);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 50ch;
+      margin-bottom: var(--sp-10);
+    }
+    .hero__photo-note {
+      font-family: var(--font-label);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-top: var(--sp-4);
+    }
+    /* Search bar positioned at bottom of hero */
+    .hero__search {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: var(--sp-6) var(--gutter);
+    }
+    .hero__search-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .search-bar {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-5) var(--sp-6);
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: var(--sp-4);
+      align-items: end;
+    }
+    /* Stat strip */
+    .stat-strip {
+      background: var(--h-purple);
+      padding: var(--sp-6) 0;
+    }
+    .stat-strip__inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-6);
+    }
+    .stat-item { text-align: center; }
+    .stat-item__num {
+      font-family: var(--font-display);
+      font-size: var(--text-4xl);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: var(--sp-1);
+    }
+    .stat-item__num sup { font-size: 0.5em; vertical-align: super; color: var(--h-amber); }
+    .stat-item__label {
+      font-family: var(--font-label);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    /* Photo credit note for listings */
+    .photo-placeholder-note {
+      background: rgba(245,138,43,0.08);
+      border: 1px solid rgba(245,138,43,0.2);
+      border-radius: var(--radius-md);
+      padding: var(--sp-4) var(--sp-5);
+      margin-bottom: var(--sp-8);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--grey-600);
+      line-height: 1.65;
+    }
+    /* Diaspora section */
+    .diaspora-bg {
+      background: linear-gradient(135deg, var(--h-purple-deep) 0%, var(--dark-mid) 100%);
+    }
+    @media (max-width: 768px) {
+      .stat-strip__inner { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Henrisol Properties Ltd",
+    "description": "Premium Nigerian real estate company providing property sales, lettings, investment, development, property management, and facilities management services.",
+    "url": "https://henrisol.oagroupng.com",
+    "telephone": "+2348061650349",
+    "email": "info@henrisol.oagroupng.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4, Aderoju Adewuyi Street, Off Alfred Olaiya Street, Opebi-Ikeja",
+      "addressLocality": "Lagos",
+      "addressRegion": "Lagos State",
+      "addressCountry": "NG"
+    },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "OA Group Nigeria",
+      "url": "https://oagroupng.com"
+    },
+    "areaServed": "Nigeria",
+    "serviceType": ["Real Estate Sales", "Property Lettings", "Property Investment", "Property Development", "Property Management", "Facilities Management"]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="Henrisol Properties home">
+        <span class="nav__logo-name">Henrisol Properties Ltd</span>
+        <span class="nav__logo-sub">A Member of OA Group Nigeria</span>
+      </a>
+      <div class="nav__links">
+        <a href="/" class="nav__link nav__link--active">Home</a>
+        <a href="/properties/" class="nav__link">Properties</a>
+        <a href="/services/" class="nav__link">Services</a>
+        <a href="/invest/" class="nav__link">Invest</a>
+        <a href="/about/" class="nav__link">About</a>
+        <a href="/contact/" class="nav__link">Contact</a>
+      </div>
+      <a href="/contact/" class="nav__cta">Schedule a Viewing</a>
+      <button class="nav__hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="/" class="nav__link">Home</a>
+    <a href="/properties/" class="nav__link">Properties</a>
+    <a href="/services/" class="nav__link">Services</a>
+    <a href="/invest/" class="nav__link">Invest</a>
+    <a href="/about/" class="nav__link">About</a>
+    <a href="/contact/" class="nav__link">Contact</a>
+    <a href="/contact/" class="nav__cta" style="margin-top:var(--sp-4);">Schedule a Viewing</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ── HERO ── -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__bg">
+        <!-- PHOTOGRAPHY REQUIRED: Replace this placeholder with a full-width hero image of a premium Nigerian property or development before launch. Minimum 1920×1080px, professional photography only. -->
+        <img src="/images/hero-property.jpg" alt="Premium Nigerian property" loading="eager" onerror="this.style.display='none'">
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__content">
+        <span class="hero__eyebrow">Real Estate · Investment · Development · Management</span>
+        <h1 class="hero__headline">Find your <em>place</em> in Nigeria.</h1>
+        <p class="hero__sub">Premium Nigerian property — from residential sales and lettings to investment portfolios, development projects, and facilities management. A trusted real estate partner backed by OA Group Nigeria.</p>
+        <div style="display:flex;gap:var(--sp-4);flex-wrap:wrap;">
+          <a href="/properties/" class="btn btn-amber">Browse Properties</a>
+          <a href="/invest/" class="btn btn-outline">Investment Packages</a>
+        </div>
+        <!-- PHOTOGRAPHY NOTE — remove before launch -->
+        <p class="hero__photo-note">⚠ Photography required before launch — commission professional property images to replace placeholder background</p>
+      </div>
+      <div class="hero__search" aria-label="Property search">
+        <div class="hero__search-inner">
+          <form class="search-bar" id="propertySearch" role="search" aria-label="Search properties">
+            <div class="search-field">
+              <label for="searchLocation">Location</label>
+              <select id="searchLocation" name="location">
+                <option value="">Any Location</option>
+                <option value="lekki">Lekki, Lagos</option>
+                <option value="vi">Victoria Island, Lagos</option>
+                <option value="ikoyi">Ikoyi, Lagos</option>
+                <option value="ikeja">Ikeja, Lagos</option>
+                <option value="abuja">Abuja</option>
+                <option value="port-harcourt">Port Harcourt</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <label for="searchType">Property Type</label>
+              <select id="searchType" name="type">
+                <option value="">Any Type</option>
+                <option value="buy">For Sale</option>
+                <option value="rent">For Rent</option>
+                <option value="commercial">Commercial</option>
+                <option value="offplan">Off-Plan</option>
+                <option value="land">Land</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <label for="searchBudget">Budget</label>
+              <select id="searchBudget" name="budget">
+                <option value="">Any Budget</option>
+                <option value="under-50m">Under ₦50m</option>
+                <option value="50-150m">₦50m – ₦150m</option>
+                <option value="150-500m">₦150m – ₦500m</option>
+                <option value="500m-plus">₦500m+</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-purple" style="padding:0.875rem 1.5rem;">Search</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STAT STRIP ── -->
+    <div class="stat-strip" aria-label="Company metrics">
+      <div class="container">
+        <div class="stat-strip__inner">
+          <div class="stat-item">
+            <div class="stat-item__num">[X]<sup>+</sup></div>
+            <div class="stat-item__label">Properties Listed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">[X]<sup>+</sup></div>
+            <div class="stat-item__label">Transactions Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">[X]<sup>+</sup></div>
+            <div class="stat-item__label">Diaspora Clients Served</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__num">[X]<sup>+</sup></div>
+            <div class="stat-item__label">Years in Property</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FEATURED LISTINGS ── -->
+    <section class="section section--lg" aria-label="Featured properties">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:var(--sp-8);flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <span class="section-label reveal">Featured Properties</span>
+            <h2 class="section-title reveal reveal--delay-1" style="margin-bottom:0;">Current listings</h2>
+          </div>
+          <a href="/properties/" class="btn btn-secondary reveal">All Properties</a>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs reveal" style="margin-bottom:var(--sp-8);" role="group" aria-label="Filter by property type">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="buy">For Sale</button>
+          <button class="filter-tab" data-filter="rent">For Rent</button>
+          <button class="filter-tab" data-filter="commercial">Commercial</button>
+          <button class="filter-tab" data-filter="offplan">Off-Plan</button>
+        </div>
+
+        <!-- Photography placeholder notice -->
+        <div class="photo-placeholder-note">
+          <strong>⚠ Photography required:</strong> All property images below are placeholders. Each listing requires professional photography (minimum 800×600px, well-lit, wide-angle interior and exterior shots) before launch. Minimum 3–5 real listings with confirmed prices and specifications must be supplied by the client before the properties section can go live.
+        </div>
+
+        <div class="listings-grid">
+          <!-- Listing 1 -->
+          <article class="listing-card reveal" data-type="buy">
+            <div class="listing-card__img">
+              <!-- PHOTOGRAPHY PLACEHOLDER — replace with real property image -->
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--h-purple-deep),var(--h-purple));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-family:var(--font-label);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Photo Required</div>
+              <span class="listing-card__badge listing-card__badge--buy">For Sale</span>
+              <span class="listing-card__price">₦[XXX,XXX,XXX]</span>
+            </div>
+            <div class="listing-card__body">
+              <div class="listing-card__location">📍 [Location, Lagos]</div>
+              <h3 class="listing-card__name">[Property Name / Development]</h3>
+              <div class="listing-card__specs">
+                <span class="listing-card__spec">🛏 [X] Bed</span>
+                <span class="listing-card__spec">🚿 [X] Bath</span>
+                <span class="listing-card__spec">📐 [XXX] sqm</span>
+              </div>
+              <p class="listing-card__desc">[Property description — type, key features, location advantages, finishing standard, development status. To be supplied by client.]</p>
+              <a href="/properties/" class="listing-card__link">View Property <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- Listing 2 -->
+          <article class="listing-card reveal reveal--delay-1" data-type="rent">
+            <div class="listing-card__img">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#3D2050,var(--h-purple));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-family:var(--font-label);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Photo Required</div>
+              <span class="listing-card__badge listing-card__badge--rent">For Rent</span>
+              <span class="listing-card__price">₦[X,XXX,XXX]/yr</span>
+            </div>
+            <div class="listing-card__body">
+              <div class="listing-card__location">📍 [Location, Lagos]</div>
+              <h3 class="listing-card__name">[Property Name / Development]</h3>
+              <div class="listing-card__specs">
+                <span class="listing-card__spec">🛏 [X] Bed</span>
+                <span class="listing-card__spec">🚿 [X] Bath</span>
+                <span class="listing-card__spec">📐 [XXX] sqm</span>
+              </div>
+              <p class="listing-card__desc">[Property description — type, key features, location advantages, finishing standard. To be supplied by client.]</p>
+              <a href="/properties/" class="listing-card__link">View Property <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- Listing 3 -->
+          <article class="listing-card reveal reveal--delay-2" data-type="offplan">
+            <div class="listing-card__img">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#2A1A40,var(--h-purple-mid));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-family:var(--font-label);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Render Required</div>
+              <span class="listing-card__badge listing-card__badge--offplan">Off-Plan</span>
+              <span class="listing-card__price">From ₦[XX,XXX,XXX]</span>
+            </div>
+            <div class="listing-card__body">
+              <div class="listing-card__location">📍 [Location, Lagos]</div>
+              <h3 class="listing-card__name">[Development Name]</h3>
+              <div class="listing-card__specs">
+                <span class="listing-card__spec">🏗 [X] Units</span>
+                <span class="listing-card__spec">📅 [Completion Quarter/Year]</span>
+              </div>
+              <p class="listing-card__desc">[Off-plan development description — concept, unit types available, payment plan, location, expected completion. To be supplied by client.]</p>
+              <a href="/properties/" class="listing-card__link">View Development <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- Listing 4 -->
+          <article class="listing-card reveal" data-type="commercial">
+            <div class="listing-card__img">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--h-purple-deep),#2A1848);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-family:var(--font-label);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Photo Required</div>
+              <span class="listing-card__badge listing-card__badge--commercial">Commercial</span>
+              <span class="listing-card__price">₦[XX,XXX,XXX]/yr</span>
+            </div>
+            <div class="listing-card__body">
+              <div class="listing-card__location">📍 [Location, Lagos]</div>
+              <h3 class="listing-card__name">[Commercial Property Name]</h3>
+              <div class="listing-card__specs">
+                <span class="listing-card__spec">📐 [X,XXX] sqm</span>
+                <span class="listing-card__spec">🏢 [X] Floors</span>
+              </div>
+              <p class="listing-card__desc">[Commercial space description — type, floor area, location, facilities, parking, lease terms. To be supplied by client.]</p>
+              <a href="/properties/" class="listing-card__link">View Property <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- Listing 5 -->
+          <article class="listing-card reveal reveal--delay-1" data-type="buy">
+            <div class="listing-card__img">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--h-purple),#5A3870);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-family:var(--font-label);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Photo Required</div>
+              <span class="listing-card__badge listing-card__badge--buy">For Sale</span>
+              <span class="listing-card__price">₦[XX,XXX,XXX]</span>
+            </div>
+            <div class="listing-card__body">
+              <div class="listing-card__location">📍 [Location, Lagos]</div>
+              <h3 class="listing-card__name">[Property Name]</h3>
+              <div class="listing-card__specs">
+                <span class="listing-card__spec">🛏 [X] Bed</span>
+                <span class="listing-card__spec">🚿 [X] Bath</span>
+                <span class="listing-card__spec">📐 [XXX] sqm</span>
+              </div>
+              <p class="listing-card__desc">[Property description. To be supplied by client with photography.]</p>
+              <a href="/properties/" class="listing-card__link">View Property <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <!-- Listing 6 -->
+          <article class="listing-card reveal reveal--delay-2" data-type="rent">
+            <div class="listing-card__img">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#3A2458,var(--h-purple-mid));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-family:var(--font-label);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Photo Required</div>
+              <span class="listing-card__badge listing-card__badge--rent">For Rent</span>
+              <span class="listing-card__price">₦[X,XXX,XXX]/yr</span>
+            </div>
+            <div class="listing-card__body">
+              <div class="listing-card__location">📍 [Location, Lagos]</div>
+              <h3 class="listing-card__name">[Property Name]</h3>
+              <div class="listing-card__specs">
+                <span class="listing-card__spec">🛏 [X] Bed</span>
+                <span class="listing-card__spec">🚿 [X] Bath</span>
+                <span class="listing-card__spec">📐 [XXX] sqm</span>
+              </div>
+              <p class="listing-card__desc">[Property description. To be supplied by client with photography.]</p>
+              <a href="/properties/" class="listing-card__link">View Property <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align:center;margin-top:var(--sp-12);">
+          <a href="/properties/" class="btn btn-purple">View All Properties</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES OVERVIEW ── -->
+    <section class="section" style="background:var(--off-white);" aria-label="Services">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--sp-12);">
+          <span class="section-label reveal">Our Services</span>
+          <h2 class="section-title reveal reveal--delay-1" style="margin:0 auto var(--sp-4);">Full-service Nigerian real estate</h2>
+          <p class="lead reveal reveal--delay-2" style="margin:0 auto;text-align:center;">From finding and acquiring property through managing and developing it — Henrisol provides the full real estate service spectrum for Nigerian individuals, corporates, and diaspora investors.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-card__icon">🏡</div>
+            <h3 class="service-card__name">Sales & Lettings</h3>
+            <p class="service-card__desc">Residential and commercial property sales and lettings across Lagos and key Nigerian markets. Expert local knowledge, transparent process, and professional support from search through to completion.</p>
+            <a href="/services/" class="service-card__link">Explore Sales & Lettings <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="service-card reveal reveal--delay-1">
+            <div class="service-card__icon">📈</div>
+            <h3 class="service-card__name">Real Estate Investment</h3>
+            <p class="service-card__desc">Structured real estate investment opportunities — off-plan, development finance, land banking, and income-generating portfolio assets — with clear investment profiles, return projections, and legal documentation.</p>
+            <a href="/invest/" class="service-card__link">Explore Investment <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="service-card reveal reveal--delay-2">
+            <div class="service-card__icon">🏗️</div>
+            <h3 class="service-card__name">Property Development</h3>
+            <p class="service-card__desc">Current and pipeline development projects — residential, mixed-use, and commercial. End-to-end development management from site acquisition through planning, construction, and marketing.</p>
+            <a href="/services/" class="service-card__link">View Developments <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-card__icon">🔑</div>
+            <h3 class="service-card__name">Property Management</h3>
+            <p class="service-card__desc">Comprehensive property management for landlords and investors — tenant sourcing, rent collection, maintenance coordination, and financial reporting. Specialist diaspora property management with remote transparency.</p>
+            <a href="/services/" class="service-card__link">Explore Management <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="service-card reveal reveal--delay-1">
+            <div class="service-card__icon">🏢</div>
+            <h3 class="service-card__name">Facilities Management</h3>
+            <p class="service-card__desc">Professional facilities management for corporate offices, commercial buildings, and estates — planned preventive maintenance, service level agreements, vendor management, and compliance oversight.</p>
+            <a href="/services/" class="service-card__link">Explore FM Services <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="service-card reveal reveal--delay-2">
+            <div class="service-card__icon">🌍</div>
+            <h3 class="service-card__name">Diaspora Investment</h3>
+            <p class="service-card__desc">Dedicated diaspora investment service — structured real estate opportunities for UK, US, and Canada-based Nigerians. Remote-accessible process, verified documentation, trusted management, and transparent reporting.</p>
+            <a href="/invest/" class="service-card__link">Diaspora Investment Guide <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ROI CALCULATOR ── -->
+    <section class="section" style="background:var(--dark-bg);" aria-label="ROI Calculator">
+      <div class="container">
+        <div class="two-col">
+          <div>
+            <span class="section-label reveal" style="color:var(--h-amber);">Investment Tools</span>
+            <h2 class="section-title section-title--light reveal reveal--delay-1">Calculate your Nigerian property returns</h2>
+            <p class="section-body reveal reveal--delay-2" style="color:rgba(255,255,255,0.6);margin-bottom:var(--sp-8);">Use our rental yield and capital appreciation calculator to model indicative returns from Nigerian real estate investment. Enter your investment parameters to see projected figures.</p>
+            <div class="reveal reveal--delay-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:var(--sp-6);">
+              <div style="font-family:var(--font-label);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:var(--sp-3);">Important Note</div>
+              <p style="font-family:var(--font-body);font-size:var(--text-base);color:rgba(255,255,255,0.4);line-height:1.7;">All outputs are illustrative projections only. Actual rental yields and capital appreciation are subject to market conditions, property specifics, and management quality. Past performance is not indicative of future results. Consult a Henrisol advisor before making investment decisions.</p>
+            </div>
+          </div>
+          <div class="reveal reveal--delay-1">
+            <div class="roi-calculator">
+              <div style="font-family:var(--font-label);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--h-amber);margin-bottom:var(--sp-6);">Property Investment Calculator</div>
+              <div class="roi-row">
+                <div class="roi-field">
+                  <label for="propPrice">Property Value (₦)</label>
+                  <input type="number" id="propPrice" placeholder="e.g. 50000000" min="1000000">
+                </div>
+                <div class="roi-field">
+                  <label for="propRent">Monthly Rent (₦)</label>
+                  <input type="number" id="propRent" placeholder="e.g. 350000" min="10000">
+                </div>
+              </div>
+              <div class="roi-row">
+                <div class="roi-field">
+                  <label for="propGrowth">Annual Capital Growth (%)</label>
+                  <input type="number" id="propGrowth" placeholder="e.g. 8" min="0" max="50" step="0.5" value="8">
+                </div>
+                <div class="roi-field">
+                  <label for="propYears">Investment Period (Years)</label>
+                  <select id="propYears">
+                    <option value="">Select period</option>
+                    <option value="3">3 Years</option>
+                    <option value="5">5 Years</option>
+                    <option value="7">7 Years</option>
+                    <option value="10">10 Years</option>
+                  </select>
+                </div>
+              </div>
+              <div class="roi-results" id="roiResults" style="display:none;">
+                <div class="roi-result-card roi-result-card--accent">
+                  <div class="roi-result-label">Gross Rental Yield</div>
+                  <div class="roi-result-value" id="roiYield">—</div>
+                  <div class="roi-result-note">Annual rent ÷ property value</div>
+                </div>
+                <div class="roi-result-card">
+                  <div class="roi-result-label">Projected Future Value</div>
+                  <div class="roi-result-value" id="roiFuture">—</div>
+                  <div class="roi-result-note">At selected capital growth rate</div>
+                </div>
+                <div class="roi-result-card">
+                  <div class="roi-result-label">Capital Gain</div>
+                  <div class="roi-result-value" id="roiGain">—</div>
+                  <div class="roi-result-note">Appreciation over investment period</div>
+                </div>
+                <div class="roi-result-card roi-result-card--accent">
+                  <div class="roi-result-label">Total Return</div>
+                  <div class="roi-result-value" id="roiTotal">—</div>
+                  <div class="roi-result-note">Capital gain + cumulative rent</div>
+                </div>
+              </div>
+              <a href="/contact/" class="btn btn-amber" style="width:100%;justify-content:center;margin-top:var(--sp-8);">Speak to an Investment Advisor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DIASPORA SECTION ── -->
+    <section class="section diaspora-bg" aria-label="Diaspora investment">
+      <div class="container">
+        <div class="two-col two-col--wide">
+          <div>
+            <span class="section-label reveal" style="color:var(--h-amber);">For Diaspora Investors</span>
+            <h2 class="section-title section-title--light reveal reveal--delay-1">Invest in Nigerian property — from the UK, US, or Canada</h2>
+            <p class="section-body reveal reveal--delay-2" style="color:rgba(255,255,255,0.6);margin-bottom:var(--sp-8);">Henrisol provides a structured, remote-accessible real estate investment service specifically designed for Nigerian diaspora investors. We manage every step — from property identification and legal verification through purchase, management, and income reporting — so you can invest with confidence from abroad.</p>
+            <div class="diaspora-steps reveal reveal--delay-3">
+              <div class="diaspora-step">
+                <div class="diaspora-step__num">01</div>
+                <div>
+                  <div class="diaspora-step__title">Portfolio Consultation</div>
+                  <p class="diaspora-step__desc">A dedicated advisor understands your investment objectives, budget, timeline, and risk profile — and recommends the appropriate Henrisol investment package.</p>
+                </div>
+              </div>
+              <div class="diaspora-step">
+                <div class="diaspora-step__num">02</div>
+                <div>
+                  <div class="diaspora-step__title">Property Selection & Legal Verification</div>
+                  <p class="diaspora-step__desc">We present verified investment opportunities with full legal documentation — Certificate of Occupancy (C of O), survey plans, and title verification — before any commitment is made.</p>
+                </div>
+              </div>
+              <div class="diaspora-step">
+                <div class="diaspora-step__num">03</div>
+                <div>
+                  <div class="diaspora-step__title">Secure Remote Purchase</div>
+                  <p class="diaspora-step__desc">Transaction management with verified payment channels, Power of Attorney where required, and full documentation provided digitally and by courier.</p>
+                </div>
+              </div>
+              <div class="diaspora-step">
+                <div class="diaspora-step__num">04</div>
+                <div>
+                  <div class="diaspora-step__title">Ongoing Management & Reporting</div>
+                  <p class="diaspora-step__desc">Professional property management — tenant sourcing, maintenance, and rent collection — with quarterly digital financial reports and on-demand updates.</p>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:var(--sp-10);display:flex;gap:var(--sp-4);flex-wrap:wrap;">
+              <a href="/invest/" class="btn btn-amber">Get Investment Brochure</a>
+              <a href="/contact/" class="btn btn-outline">Book a Consultation</a>
+            </div>
+          </div>
+          <div class="reveal reveal--delay-1">
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-2xl);padding:var(--sp-8);">
+              <div style="font-family:var(--font-label);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--h-amber);margin-bottom:var(--sp-6);">Diaspora Investment Packages</div>
+              <div style="display:flex;flex-direction:column;gap:var(--sp-5);">
+                <div style="padding:var(--sp-5);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);">
+                  <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;color:var(--white);margin-bottom:var(--sp-2);">Land Banking</div>
+                  <div style="font-family:var(--font-body);font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-bottom:var(--sp-3);">From ₦[XX,XXX,XXX] · [X]–[X] year horizon</div>
+                  <p style="font-family:var(--font-body);font-size:var(--text-base);color:rgba(255,255,255,0.45);line-height:1.65;">[Land banking package description — location, minimum size, title type, hold period, projected appreciation. To be supplied by client.]</p>
+                </div>
+                <div style="padding:var(--sp-5);background:rgba(245,138,43,0.08);border:1px solid rgba(245,138,43,0.2);border-radius:var(--radius-lg);">
+                  <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;color:var(--white);margin-bottom:var(--sp-2);">Income Property</div>
+                  <div style="font-family:var(--font-body);font-size:var(--text-sm);color:var(--h-amber);margin-bottom:var(--sp-3);">From ₦[XXX,XXX,XXX] · Managed letting</div>
+                  <p style="font-family:var(--font-body);font-size:var(--text-base);color:rgba(255,255,255,0.45);line-height:1.65;">[Income property package description — unit type, location, projected yield, management arrangement. To be supplied by client.]</p>
+                </div>
+                <div style="padding:var(--sp-5);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);">
+                  <div style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;color:var(--white);margin-bottom:var(--sp-2);">Off-Plan Development</div>
+                  <div style="font-family:var(--font-body);font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-bottom:var(--sp-3);">From ₦[XX,XXX,XXX] · Instalment plans available</div>
+                  <p style="font-family:var(--font-body);font-size:var(--text-base);color:rgba(255,255,255,0.45);line-height:1.65;">[Off-plan package description — development, unit type, payment plan, expected completion, handover terms. To be supplied by client.]</p>
+                </div>
+              </div>
+              <a href="/contact/" class="btn btn-amber" style="width:100%;justify-content:center;margin-top:var(--sp-6);">Register as Diaspora Investor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INSIGHTS ── -->
+    <section class="section" style="background:var(--off-white);" aria-label="Property insights">
+      <div class="container">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:var(--sp-10);flex-wrap:wrap;gap:var(--sp-4);">
+          <div>
+            <span class="section-label reveal">Property Intelligence</span>
+            <h2 class="section-title reveal reveal--delay-1" style="margin-bottom:0;">Nigerian real estate insights</h2>
+          </div>
+          <a href="/properties/" class="btn btn-secondary reveal">All Insights</a>
+        </div>
+        <div class="insights-grid">
+          <article class="insight-card reveal">
+            <div class="insight-card__img" style="background:linear-gradient(135deg,var(--h-purple-deep),var(--h-purple));"></div>
+            <div class="insight-card__body">
+              <span class="insight-card__cat">Land Acquisition</span>
+              <h3 class="insight-card__title">How to Buy Land Safely in Nigeria — A Step-by-Step Guide</h3>
+              <p class="insight-card__excerpt">Due diligence, title verification, C of O vs Governor's Consent, and the practical steps that protect Nigerian land buyers from fraud and litigation. A comprehensive guide from our property advisory team.</p>
+              <div class="insight-card__meta">January 2025 · 9 min read</div>
+              <a href="#" class="insight-card__link">Read Article <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="insight-card reveal reveal--delay-1">
+            <div class="insight-card__img" style="background:linear-gradient(135deg,#3D2050,var(--h-purple-mid));"></div>
+            <div class="insight-card__body">
+              <span class="insight-card__cat">Diaspora Investment</span>
+              <h3 class="insight-card__title">Diaspora Real Estate Investment in Nigeria: What You Need to Know</h3>
+              <p class="insight-card__excerpt">Legal protections, documented transaction structures, remote purchase mechanics, and property management arrangements that make Nigerian real estate investment safe and manageable from abroad.</p>
+              <div class="insight-card__meta">February 2025 · 7 min read</div>
+              <a href="#" class="insight-card__link">Read Article <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="insight-card reveal reveal--delay-2">
+            <div class="insight-card__img" style="background:linear-gradient(135deg,var(--h-purple),var(--h-purple-dark));"></div>
+            <div class="insight-card__body">
+              <span class="insight-card__cat">Investment Strategy</span>
+              <h3 class="insight-card__title">Rental Yield vs Capital Growth: Which Property Strategy Works in Lagos?</h3>
+              <p class="insight-card__excerpt">A practical comparison of the two primary real estate investment strategies in Lagos — income-generating letting portfolios versus capital appreciation plays in developing corridors — and how to choose the right approach for your objectives.</p>
+              <div class="insight-card__meta">March 2025 · 8 min read</div>
+              <a href="#" class="insight-card__link">Read Article <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CROSS-REFERRAL ── -->
+    <section style="padding-block:var(--sp-8);" aria-label="Group cross-referral">
+      <div class="container">
+        <div class="cross-referral reveal">
+          <p class="cross-referral__text">Need <strong>financing for your property purchase?</strong> Our sister company Maria Oyinlola Limited provides property financing, investment structuring, and financial advisory backed by CBN regulation.</p>
+          <a href="https://mol.oagroupng.com" class="btn btn-secondary" target="_blank" rel="noopener">Finance Through MOL <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-banner" aria-label="Call to action">
+      <div class="cta-banner__content">
+        <h2 class="cta-banner__title reveal">Your Nigerian property journey starts here.</h2>
+        <p class="cta-banner__sub reveal reveal--delay-1">Whether you are buying, renting, investing, or managing — Henrisol brings professional real estate expertise to every step of your property journey in Nigeria.</p>
+        <div class="cta-banner__actions reveal reveal--delay-2">
+          <a href="/contact/" class="btn btn-amber">Schedule a Property Viewing</a>
+          <a href="/invest/" class="btn btn-outline">Get Investment Brochure</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Henrisol Properties Ltd</div>
+          <div class="footer__brand-tag">Property. Investment. Development. Management.</div>
+          <p class="footer__desc">Premium Nigerian real estate — residential and commercial sales, lettings, investment, development, property management, and facilities management. Diaspora investment specialists.</p>
+          <a href="https://oagroupng.com" class="footer__group-badge" target="_blank" rel="noopener">A Member of OA Group Nigeria</a>
+          <div class="footer__cac">RC: [CAC: RC-XXXXXX]</div>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="/" class="footer__link">Home</a>
+            <a href="/properties/" class="footer__link">Properties</a>
+            <a href="/services/" class="footer__link">Services</a>
+            <a href="/invest/" class="footer__link">Invest</a>
+            <a href="/about/" class="footer__link">About</a>
+            <a href="/contact/" class="footer__link">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__col-title">OA Group</div>
+          <nav class="footer__links" aria-label="OA Group companies">
+            <a href="https://oagroupng.com" class="footer__link" target="_blank" rel="noopener">OA Group Nigeria</a>
+            <a href="https://olusola-adekanola.oagroupng.com" class="footer__link" target="_blank" rel="noopener">Olusola Adekanola & Co</a>
+            <a href="https://oaconsulting.oagroupng.com" class="footer__link" target="_blank" rel="noopener">OA Consulting</a>
+            <a href="https://mol.oagroupng.com" class="footer__link" target="_blank" rel="noopener">Maria Oyinlola Ltd</a>
+            <a href="https://pearlprimus.oagroupng.com" class="footer__link" target="_blank" rel="noopener">Pearl Primus</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <address style="font-style:normal;">
+            <p class="footer__contact-item">4, Aderoju Adewuyi Street,<br>Off Alfred Olaiya Street,<br>Opebi-Ikeja, Lagos State, Nigeria</p>
+            <p class="footer__contact-item"><a href="tel:+2348061650349" class="footer__link">+234 806 165 0349</a></p>
+            <p class="footer__contact-item"><a href="mailto:info@henrisol.oagroupng.com" class="footer__link">info@henrisol.oagroupng.com</a></p>
+          </address>
+          <div class="footer__socials" aria-label="Social media">
+            <a href="https://linkedin.com/company/oagroupng" class="footer__social" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+            <a href="https://x.com/oagroupng" class="footer__social" aria-label="X" target="_blank" rel="noopener">𝕏</a>
+            <a href="https://instagram.com/oagroupng" class="footer__social" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+            <a href="https://facebook.com/oagroupng" class="footer__social" aria-label="Facebook" target="_blank" rel="noopener">fb</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Henrisol Properties Ltd. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal links">
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Use</a>
+          <a href="/disclaimer/">Disclaimer</a>
+        </nav>
+        <p class="footer__dev">Designed & developed by GreaterHeight Technologies</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--h-amber);border:none;color:var(--white);font-size:18px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:500;cursor:pointer;">↑</button>
+
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent">
+    <p class="cookie-banner__text">We use cookies to improve your experience. See our <a href="/privacy/" style="color:var(--h-amber);text-decoration:underline;">Privacy Policy</a>.</p>
+    <div class="cookie-banner__actions">
+      <button id="cookieAccept" class="btn btn-amber" style="padding:0.5rem 1.25rem;font-size:11px;">Accept</button>
+      <button id="cookieDecline" class="btn btn-outline" style="padding:0.5rem 1.25rem;font-size:11px;">Decline</button>
+    </div>
+  </div>
+
+  <script src="/js/navigation.js" defer></script>
+  <script src="/js/main.js" defer></script>
+</body>
+</html>
